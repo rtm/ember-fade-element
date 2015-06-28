@@ -1,25 +1,27 @@
+# ember-fade-element
+
 # Ember-fade-element
 
-This README outlines the details of collaborating on this Ember addon.
+`ember-fade-element` introduces fading and other transition effects when the content of an element changes.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* ember addon ember-fade-element
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+    {{#ember-fade-element}}
+      {{name}}
+    {{/ember-fade-element}}
 
-## Running Tests
+To select specific effects in addition to the default fading, supply addition classnames:
 
-* `ember test`
-* `ember test --server`
+    {{#ember-fade-element class="FadeElement--flipVertical"}}
 
-## Building
+Available classes are `flipVertical', 'flipHorizontal', 'rotateRight', `slideUp`, `slideDown`, `slideLeft`, `slideRight`, and `zoom`.
 
-* `ember build`
+## Notes
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+Requres MutationObserver (not available in IE <= 10).
+In its absence, does nothing.
