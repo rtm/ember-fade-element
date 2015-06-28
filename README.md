@@ -1,12 +1,10 @@
 # ember-fade-element
 
-# Ember-fade-element
-
 `ember-fade-element` introduces fading and other transition effects when the content of an element changes.
 
 ## Installation
 
-* ember addon ember-fade-element
+    ember addon ember-fade-element
 
 ## Usage
 
@@ -18,7 +16,7 @@ To select specific effects in addition to the default fading, supply addition cl
 
     {{#ember-fade-element class="FadeElement--flipVertical"}}
 
-Available classes are `flipVertical', 'flipHorizontal', 'rotateRight', `slideUp`, `slideDown`, `slideLeft`, `slideRight`, and `zoom`.
+Available classes are `flipVertical`, `flipHorizontal`, `rotateRight`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, and `zoom`.
 
 ## Notes
 
