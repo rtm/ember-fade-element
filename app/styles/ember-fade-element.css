@@ -1,0 +1,87 @@
+/**
+ * styles/ember-fade-element.css
+ *
+ * Styling for ember-fade-element component to fade one element in on top of another.
+ *
+ * The `FadeElement` element has two children. First is original, second is clone.
+ *
+ * To control duration, set the `transition-duration` property on the `FadeElement` component.
+ */
+
+/* Make this an offset parent, so the absolute positioning of the clone is relative to it.
+   You can override the `transition-duration` on the component to change the duration.
+*/
+.FadeElement  {
+  position: relative;         /* create formatting context for absolutely-positioned clone */
+  transition-duration: 1s;    /* override this to change duration */
+  transition-timing-function: cubic-bezier(0, 1.2, 1, 1.2); /* little bounce at top */
+  overflow: hidden;
+}
+
+/* The second child is the clone. Place it directly over the original version. */
+.FadeElement > :nth-child(2) { position: absolute; top: 0; left: 0; }
+
+/* Apply transition to both original and clone. */
+.FadeElement > * {
+  transition-duration: inherit;
+  transition-property: none;
+  transition-timing-function: inherit;
+  backface-visibility: hidden;
+}
+
+/* We want to transition only going in, not coming out. */
+.FadeElement.is-transition > * { transition-property: all; }
+
+
+/* E F F E C T S */
+
+.FadeElement--fade                     > :nth-child(1) { opacity: 0; }
+.FadeElement--fade                     > :nth-child(2) { opacity: 1; }
+.FadeElement--fade.is-transition       > :nth-child(1) { opacity: 1; }
+.FadeElement--fade.is-transition       > :nth-child(2) { opacity: 0; }
+
+.FadeElement--slideRight               > :nth-child(1) { transform: translateX(-100%); }
+.FadeElement--slideRight               > :nth-child(2) { transform: translateX(0);     }
+.FadeElement--slideRight.is-transition > :nth-child(1) { transform: translateX(0);     }
+.FadeElement--slideRight.is-transition > :nth-child(2) { transform: translateX(+100%); }
+
+.FadeElement--slideLeft                > :nth-child(1) { transform: translateX(+100%); }
+.FadeElement--slideLeft                > :nth-child(2) { transform: translateX(0);     }
+.FadeElement--slideLeft.is-transition  > :nth-child(1) { transform: translateX(0);     }
+.FadeElement--slideLeft.is-transition  > :nth-child(2) { transform: translateX(-100%); }
+
+.FadeElement--slideDown                > :nth-child(1) { transform: translateY(-100%); }
+.FadeElement--slideDown                > :nth-child(2) { transform: translateY(0);     }
+.FadeElement--slideDown.is-transition  > :nth-child(1) { transform: translateY(0);     }
+.FadeElement--slideDown.is-transition  > :nth-child(2) { transform: translateY(+100%); }
+
+.FadeElement--slideUp                  > :nth-child(1) { transform: translateY(+100%); }
+.FadeElement--slideUp                  > :nth-child(2) { transform: translateY(0);     }
+.FadeElement--slideUp.is-transition    > :nth-child(1) { transform: translateY(0);     }
+.FadeElement--slideUp.is-transition    > :nth-child(2) { transform: translateY(-100%); }
+
+.FadeElement--rotateRight               > :nth-child(1) { transform: rotate(0);        }
+.FadeElement--rotateRight               > :nth-child(2) { transform: rotate(0);        }
+.FadeElement--rotateRight.is-transition > :nth-child(1) { transform: rotate(360deg);   }
+.FadeElement--rotateRight.is-transition > :nth-child(2) { transform: rotate(360deg);   }
+
+.FadeElement--flipVertical               > :nth-child(1) { transform: rotateX(0);      }
+.FadeElement--flipVertical               > :nth-child(2) { transform: rotateX(0);      }
+.FadeElement--flipVertical.is-transition > :nth-child(1) { transform: rotateX(360deg); }
+.FadeElement--flipVertical.is-transition > :nth-child(2) { transform: rotateX(360deg); }
+
+.FadeElement--flipHorizontal               > :nth-child(1) { transform: rotateY(0);      }
+.FadeElement--flipHorizontal               > :nth-child(2) { transform: rotateY(0);      }
+.FadeElement--flipHorizontal.is-transition > :nth-child(1) { transform: rotateY(360deg); }
+.FadeElement--flipHorizontal.is-transition > :nth-child(2) { transform: rotateY(360deg); }
+
+.FadeElement--zoom               > :nth-child(1) { transform: scale(1.5); }
+.FadeElement--zoom               > :nth-child(2) { transform: scale(1.0); }
+.FadeElement--zoom.is-transition > :nth-child(1) { transform: scale(1.0); }
+.FadeElement--zoom.is-transition > :nth-child(2) { transform: scale(1.5); }
+
+/* If component is turned off, just show the original. */
+.FadeElement.is-disabled  > :nth-child(1) {
+  opacity: 1;
+  transform: translate(0, 0);
+}
