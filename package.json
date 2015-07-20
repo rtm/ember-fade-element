@@ -1,6 +1,6 @@
 {
   "name": "ember-fade-element",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Ember addon to fade element content transitions.",
   "directories": {
     "doc": "doc",

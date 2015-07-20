@@ -9,14 +9,14 @@
 ## Usage
 
     {{#fade-element}}
-      {{name}}
+      ...some content...
     {{/fade-element}}
 
-To select specific effects in addition to the default fading, supply addition classnames:
+To select specific effects in addition to the default fading, supply additional classnames:
 
     {{#fade-element class="FadeElement--flipVertical"}}
 
-Available classes are `flipVertical`, `flipHorizontal`, `rotateRight`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, and `zoom`.
+Available classes are `flipVertical`, `flipHorizontal`, `rotateRight`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, and `zoom`. You will have best results using just one at a time.
 
 To control the duration of the transition, arrange for the CSS `transition-duration` property to be set on the element, as in
 
@@ -24,7 +24,9 @@ To control the duration of the transition, arrange for the CSS `transition-durat
 
     {{#fade-element class="slow"}}
 
+`transition-timing-function` and `transform-origin` can be similarly controlled.
+
 ## Notes
 
-Requres MutationObserver (not available in IE <= 10).
+Requres `MutationObserver` (not available in IE <= 10).
 In its absence, does nothing.

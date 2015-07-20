@@ -88,7 +88,7 @@ export default Ember.Component.extend({
 
     var original = this.get('original');
     var observer = new MutationObserver(this.in);
-    var config = { childList: true, characterData: true, subtree: true };
+    var config = { childList: true, characterData: true, subtree: true, attributes: true };
 
     observer.observe(original, config);
     this.setProperties({ observer });
